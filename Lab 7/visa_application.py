@@ -55,8 +55,20 @@ def payable_fee(text):
         return max(total, 0.0)
 
     except (ValueError, TypeError):
-        return 0.0
+        return 0.
+def parse_application(text):
+    visa, entries = text.split(':')
+    return visa.strip().title(), int(entries)
 
+def processing_average(days_csv):
+    values = [int(r) for r in days_csv.split(',')]
+    return sum(values) // len(values)
+
+def payable_fee(text):
+    fee, discount = text.split('|')
+    total = float(fee) * 1.18 - float(discount)
+    return max(total, 0)
+main
 
 def main():
     print("==== Running parse_application ====")
@@ -74,6 +86,10 @@ def main():
     result = payable_fee(user_input)
     print("Payable Fee:", result)
 
+lab7-fuzz-testing
 
 if __name__ == "__main__":
     main()
+if __name__ == "__main__":
+    main()
+main
